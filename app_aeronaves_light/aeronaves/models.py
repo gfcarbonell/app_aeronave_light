@@ -13,22 +13,11 @@ from django.template.defaultfilters import slugify
 
 class Aeronave(models.Model):
     BOOL_ACTIVO                     = ((True, 'Si'), (False, 'No'))
-    parte_aeronave 	                = models.ManyToManyField(ParteAeronave,
-                                      null=True, default=None,
-                                      through='catalogos_aeronaves_partes.CatalogoAeronaveParte')
+    parte_aeronave 	                = models.ManyToManyField(ParteAeronave, through='catalogos_aeronaves_partes.CatalogoAeronaveParte')
     tipo_aeronave                   = models.ForeignKey(TipoAeronave)
-    modelo                          = models.ForeignKey(Modelo)
     marca                           = models.ForeignKey(Marca)
-    nombre 	   						= models.CharField(
-									  max_length=100,
-								      validators=[
-								  		        MinLengthValidator(1),
-								  		        MaxLengthValidator(100),
-								  		    ],
-									  unique=True,
-									  db_index=True,
-									  help_text='Escribir el nombre del aeronave.')
-    fotografia   					 = models.ImageField(
+    modelo                          = models.ForeignKey(Modelo)
+    fotografia   					= models.ImageField(
 															blank=True,
 															null=True,
 															verbose_name='Avatar (Fotografía)',
@@ -37,6 +26,16 @@ class Aeronave(models.Model):
 															default='default/No_Avatar_1.png',
 															
 														)
+    numero_cola_aeronave            = models.CharField(
+                                      max_length=100,
+                                      default= 0,
+                                      validators=[
+                                                MinLengthValidator(1),
+                                                MaxLengthValidator(100),
+                                            ],
+                                      unique=True, 
+                                      db_index=True, 
+                                      help_text='Escribir el numero cola de aeronave .')
 
     descripcion		                = models.TextField(verbose_name='Descripción (Aeronave)' ,blank=True, null=True, help_text='(Opcional).')
     activo                          = models.BooleanField(choices=BOOL_ACTIVO, default=True)
@@ -54,7 +53,7 @@ class Aeronave(models.Model):
     #	return self.nombre
 
     def get_nombre(self):
-    	return self.nombre
+    	return ' %s | %s | %s ' %(self.tipo_aeronave, self.marca, self.modelo)
 
     def save(self, *args, **kwargs):
     	if not self.pk:
@@ -70,7 +69,7 @@ class Aeronave(models.Model):
     	#Nombre para la tabla del gestor de base de datos
     	db_table = 'Aeronaves'
     	#Ordenar los registros por un campo especifico
-    	ordering = ('nombre',)
+    	ordering = ('tipo_aeronave', 'marca', 'modelo')
     	#Nombre para el Conjunto de Objetos en el Panel de Administración
     	verbose_name = 'Aeronave'
     	#Nombre en Plural en la lista de módulos en el Panel de Administración

@@ -6,9 +6,9 @@ from .models import Aeronave
 
 @admin.register(Aeronave)
 class AeronaveAdmin(admin.ModelAdmin):
-	list_display   = ('nombre',)
+	list_display   = ('get_nombre',)
 	list_instances = True
-	search_fields  = ('nombre',)
+	search_fields  = ('get_nombre',)
 
 	class Meta:
 		model = Aeronave

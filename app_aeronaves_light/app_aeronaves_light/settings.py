@@ -65,9 +65,11 @@ INSTALLED_APPS = [
     'averias.apps.AveriasConfig',
     'tipos_aeronaves.apps.TiposAeronavesConfig',
     'aeronaves.apps.AeronavesConfig',
+    'soluciones.apps.SolucionesConfig',
     'catalogos_aeronaves_partes.apps.CatalogosAeronavesPartesConfig',
     'catalogos_aeronaves_partes_averias.apps.CatalogosAeronavesPartesAveriasConfig',
-    'catalogos_aeronaves_partes_averias_empleados.apps.CatalogosAeronavesPartesAveriasEmpleadosConfig',
+    'catalogos_aeronaves_partes_averias_soluciones.apps.CatalogosAeronavesPartesAveriasSolucionesConfig',
+    'catalogos_aeronaves_partes_averias_soluciones_empleados.apps.CatalogosAeronavesPartesAveriasSolucionesEmpleadosConfig',
 
 
 ]
@@ -108,12 +110,12 @@ WSGI_APPLICATION = 'app_aeronaves_light.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Aero_Aeronaves',
-        'USER': 'postgres',
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'App_Aeronaves',
+        'USER': 'sa',
         'PASSWORD': 'S1st3mas',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '1433',
     }
 }
 

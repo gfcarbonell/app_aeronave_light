@@ -1,0 +1,97 @@
+{% extends 'base_control_panel.html '%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block panel_left%}
+<div class="container">
+	<!-- Aeronaves -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="" class="label-panel ">
+					Aeronave(s)
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				<select name="" id="aeronave_id" class="select-field-default">
+					<option value=""> ---------- </option>
+					{% for aeronave in aeronaves %}
+						<option value="{{aeronave.pk}}" > {{aeronave}} </option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<div class="container-checkbox">
+				<!-- Input -->
+				<ul class="input-panel ">
+					{% for catalogo_aeronave_parte in catalogos_aeronaves_partes %}
+					<li for="">
+						<label for="">
+							<input type="checkbox" id ="{{averia.id}}"/>
+							{{catalogo_aeronave_parte.averia}}
+						</label>
+					</li> 
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</div>
+{% endblock panel_left%}
+
+{% block panel_right_componentes %}
+<article class="card-panel">
+	<div class="card-panel-left">
+		<!-- Titulo -->
+		<div>
+			<h4>
+				Soluciones por Averia
+			</h4>
+		</div>
+		<!-- Lista de Soluciones -->
+		<ul class="items">
+			{% for catalogo_aeronave_parte_solucion in catalogos_aeronaves_partes_soluciones %}
+				<li>
+					<!-- Averia -->
+					<div class="">
+						<label for="" class="">
+							{{catalogo_aeronave_parte_solucion.catalogo_aeronave_parte_averia.averia}}
+						</label>
+					</div>
+					<!-- Solución -->
+					<div>
+						<p>
+							{{catalogo_aeronave_parte_solucion.solucion}}
+						</p>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="card-panel-right">
+		<!-- Lista de Soluciones -->
+		<ul class="items">
+			{% for empleado in empleados %}
+				<li>
+					<!-- Solución -->
+					<div>
+						<p>
+							{{empleado}}
+						</p>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</article>
+
+{% endblock panel_right_componentes %}

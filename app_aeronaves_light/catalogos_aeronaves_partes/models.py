@@ -3,18 +3,18 @@ from __future__ import unicode_literals
 
 from django.db import models
 from aeronaves.models import Aeronave
-from averias.models import Averia
 from partes_aeronaves.models import ParteAeronave
+from averias.models import Averia
 from django.core.validators import MaxLengthValidator
 from django.core.validators import MinLengthValidator
 from django.template.defaultfilters import slugify
 
 
 class CatalogoAeronaveParte(models.Model):
-	averia 							= models.ManyToManyField(Averia, through='catalogos_aeronaves_partes_averias.CatalogoAeronaveParteAveria')
+	averia							= models.ManyToManyField(Averia, through='catalogos_aeronaves_partes_averias.CatalogoAeronaveParteAveria')
 	aeronave 						= models.ForeignKey(Aeronave)
 	parte_aeronave 					= models.ForeignKey(ParteAeronave)
-	ubicacion		    			= models.TextField(verbose_name='Observación', blank=True, null=True, help_text='(Opcional)')
+	ubicacion		    			= models.TextField(verbose_name='Ubicación', blank=True, null=True, help_text='(Opcional)')
 	slug							= models.SlugField(editable=False, max_length=255 ,unique=True, db_index=True, )
 
 	#Métodos
