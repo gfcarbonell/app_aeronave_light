@@ -1,0 +1,244 @@
+{% extends 'base_control_panel.html '%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block title %}
+	Sistema de Mantenimiento Aereo | Nuevo Aeronave
+{% endblock title %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Control de Asistencia {% endblock alt_avatar_modulo %}"
+
+{% block nav-border %}
+	border-bottom-red-1
+{% endblock nav-border %}
+
+
+{% block panel_left%}
+<figure class="container">
+	<!-- Imagen -->
+	<div class="container">
+		<img src="{{aeronave.fotografia.url}} alt="" id="panel_left_imagen"
+		class="imagen-perfil oveflow-hidden border-black-2 margin-auto-left-right background-white"/>
+	</div>
+	<!-- Fotografia -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.fotografia.auto_id }}" class="label-panel ">
+				{{form.fotografia.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel" id="container_fotografia">
+
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.fotografia.errors}}
+		</div>
+	</div>
+	<!-- Descripción Empleado -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.descripcion.auto_id }}" class="label-panel ">
+				{{form.descripcion.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				{{form.descripcion}}
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.descripcion.errors}}
+		</div>
+	</div>
+	<!-- Observación Empleado -->
+	<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.observacion.auto_id }}" class="label-panel ">
+				{{form.observacion.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				{{form.observacion}}
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.observacion.errors}}
+		</div>
+	</div>
+		<div class="componente-panel">
+		<!-- Field -->
+		<div class="field-panel">
+			<!-- Label -->
+			<div class="container-label-panel">
+				<label for="{{ form.activo.auto_id }}" class="label-panel ">
+				{{form.activo.label}}
+				</label>
+			</div>
+			<!-- Input -->
+			<div class="input-panel ">
+				{{form.activo}}
+			</div>
+		</div>
+		<!-- Error -->
+		<div class="error">
+			{{form.activo.errors}}
+		</div>
+	</div>
+</figure>
+{% endblock panel_left%}
+
+
+{% block panel_right_componentes %}
+<!-- Panel - Aeronave -->
+<div class="panel" id="panel_personales">
+	<div class="container-componente-panel-dual">
+		<!-- Tipo Aeronave -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.tipo_aeronave.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.tipo_aeronave.label}}
+					</label>
+
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.tipo_aeronave}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.tipo_aeronave.errors}}
+			</div>
+		</div>
+	</div>
+	<div class="container-componente-panel-dual">
+		<!-- Modelo -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.modelo.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.modelo.label}}
+					</label>
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.modelo}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.modelo.errors}}
+			</div>
+		</div>
+    <!-- Marca -->
+    <div class="componente-panel-dual">
+      <!-- Field -->
+      <div class="field-panel">
+        <!-- Label -->
+        <div class="container-label-panel">
+          <label for="{{ form.marca.auto_id }}" class="label-panel font-weight-bolder">
+          {{form.marca.label}}
+          </label>
+        </div>
+        <!-- Input -->
+        <div class="input-panel ">
+          {{form.marca}}
+        </div>
+      </div>
+      <!-- Error -->
+      <div class="error">
+        {{form.marca.errors}}
+      </div>
+    </div>
+	</div>
+  <div class="container-componente-panel-dual">
+		<!-- Tipo Aeronave -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.color.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.color.label}}
+					</label>
+
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.color}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.color.errors}}
+			</div>
+		</div>
+	</div>
+  <div class="container-componente-panel-dual">
+		<!-- Nombre -->
+		<div class="componente-panel-dual">
+			<!-- Field -->
+			<div class="field-panel">
+				<!-- Label -->
+				<div class="container-label-panel">
+					<label for="{{ form.nombre.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.nombre.label}}
+					</label>
+
+				</div>
+				<!-- Input -->
+				<div class="input-panel ">
+					{{form.nombre}}
+				</div>
+			</div>
+			<!-- Error -->
+			<div class="error">
+				{{form.nombre.errors}}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock panel_right_componentes %}
+
+
+{% block background_panel_submit %} background-red {% endblock background_panel_submit %}
+
+
+{% block script_template %}
+	<script id ="panel_menu_template" type="text/template">
+		{% block panel_menu_item %}
+		<li class="background-white">
+			<a href="" class="link color-black" id="menu_personales">
+				Aeronave
+			</a>
+		</li>
+
+		{% endblock panel_menu_item %}
+	</script>
+
+	<script id ="imagen_template" type="text/template">
+		{{form.fotografia}}
+	</script>
+{% endblock script_template %}

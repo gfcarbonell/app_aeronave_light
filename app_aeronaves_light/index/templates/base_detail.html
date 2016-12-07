@@ -1,0 +1,35 @@
+{% extends 'base_main_modulo_nav.html '%}
+{% load static from staticfiles %}
+
+
+{% block section %}
+  <article class="container-detalle padding-full">
+    <div class="detalle-head border-bottom-red-2 ">
+      <h3 class="rotulo padding-normal-up-down upper-case color-white text-shadow-black">
+        Perfil del {% block titulo_perfil %} Empleado {% endblock titulo_perfil %}
+      </h3>
+      <p class="sub-rayado background-red">
+
+      </p>
+    </div>
+    <div class="detalle padding-normal-up-down ">
+        <!-- Datos Perfil -->
+      <div class="detalle-left padding-full">
+          {% block detalle_left_container %}
+
+          {% endblock detalle_left_container %}
+      </div>
+      <!-- Datos Personales-->
+      <div class="detalle-right">
+        {% block detalle_right_container %}
+          <div class="border-bottom-red-1">
+    				<h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    				  Datos Personales
+    				</h3>
+    			</div>
+        {% endblock detalle_right_container %}
+      </div>
+    </div>
+
+  </article>
+{% endblock section %}
