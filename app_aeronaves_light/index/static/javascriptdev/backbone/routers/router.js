@@ -18,7 +18,11 @@ var PanelMenuPiloto  = require("../views/pilotos/panel_menu_piloto");
 var SearchBox                          = require("../views/search_box");
 var Fotografia                         = require("../views/file_imagen_fotografia");
 var DocumentoIdentificacion            = require("../views/select_documento_identificacion");
-var NumeroDocumentoIdentificacion            = require("../views/input_numero_documento_identificacion");
+var NumeroDocumentoIdentificacion      = require("../views/input_numero_documento_identificacion");
+
+var AveriasSoluciones = require("../views/diagnosticos/averias_soluciones");
+var Diagnosticar = require("../views/diagnosticos/diagnosticar");
+
 
 
 class Router extends Backbone.Router
@@ -43,6 +47,8 @@ class Router extends Backbone.Router
             "mantenimiento/especialistas/"                                : "especialistas",
             "mantenimiento/especialista/nuevo/"                           : "especialista_nuevo",
             "mantenimiento/especialista/:especialista/modificar/"         : "especialista_modificar",
+            
+            "mantenimiento/diagnostico/nuevo/"                      : "diagnostico_nuevo",
             };
     }
 
@@ -92,6 +98,10 @@ class Router extends Backbone.Router
         var fotografia = new FotografiaEmpleado({el:$("#container_fotografia")});
     }
 
+    diagnostico_nuevo()
+    {
+        var diagnosticar = new Diagnosticar({el:$("#container_aeronaves")});
+    }
  }
 
 module.exports = Router;

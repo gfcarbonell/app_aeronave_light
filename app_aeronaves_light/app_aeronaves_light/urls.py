@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^mantenimiento/', 	        include('pilotos.urls', namespace='piloto')),
     url(r'^mantenimiento/', 	        include('empleados.urls', namespace='empleado')),
     url(r'^mantenimiento/', 	        include('catalogos_aeronaves_partes_averias_soluciones_empleados.urls', namespace='catalogo_aeronave_parte_averia_solucion_empleado')),
-   
+    url(r'^mantenimiento/',             include('catalogos_aeronaves_partes_averias.urls', namespace='catalogo_aeronave_parte_averia')),
+
     url(r'^', 	                        include('usuarios.urls', namespace='usuario')),
   	
     #REST
