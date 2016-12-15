@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 
 {% block title %}
-	Sistema de Mantenimiento Aereo | Nuevo Aeronave
+	Sistema de Mantenimiento Aereo | Actualizar Aeronave
 {% endblock title %}
 
 {% block src_avatar_modulo %} {% static "imagenes/png/Control_Asistencia_1.png"%} {% endblock src_avatar_modulo %}"
@@ -172,29 +172,7 @@
       </div>
     </div>
 	</div>
-  <div class="container-componente-panel-dual">
-		<!-- Tipo Aeronave -->
-		<div class="componente-panel-dual">
-			<!-- Field -->
-			<div class="field-panel">
-				<!-- Label -->
-				<div class="container-label-panel">
-					<label for="{{ form.color.auto_id }}" class="label-panel font-weight-bolder">
-					{{form.color.label}}
-					</label>
 
-				</div>
-				<!-- Input -->
-				<div class="input-panel ">
-					{{form.color}}
-				</div>
-			</div>
-			<!-- Error -->
-			<div class="error">
-				{{form.color.errors}}
-			</div>
-		</div>
-	</div>
   <div class="container-componente-panel-dual">
 		<!-- Nombre -->
 		<div class="componente-panel-dual">
@@ -202,19 +180,19 @@
 			<div class="field-panel">
 				<!-- Label -->
 				<div class="container-label-panel">
-					<label for="{{ form.nombre.auto_id }}" class="label-panel font-weight-bolder">
-					{{form.nombre.label}}
+					<label for="{{ form.numero_cola_aeronave.auto_id }}" class="label-panel font-weight-bolder">
+					{{form.numero_cola_aeronave.label}}
 					</label>
 
 				</div>
 				<!-- Input -->
 				<div class="input-panel ">
-					{{form.nombre}}
+					{{form.numero_cola_aeronave}}
 				</div>
 			</div>
 			<!-- Error -->
 			<div class="error">
-				{{form.nombre.errors}}
+				{{form.numero_cola_aeronave.errors}}
 			</div>
 		</div>
 	</div>

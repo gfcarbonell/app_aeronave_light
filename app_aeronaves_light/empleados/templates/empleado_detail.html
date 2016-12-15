@@ -50,16 +50,9 @@
 <div class="group-detalle">
   <div class="detalle-item">
     <p class="detalle-item-label font-weight-bolder">
-        Documento identificación
+        D.N.I.
     <p class="detalle-item-value font-weight-bolder">
-      {{object.documento_identificacion}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-        Número documento identificación
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.numero_documento_identificacion}}
+      {{object.dni}}
     </p>
   </div>
   <div class="detalle-item">
@@ -83,31 +76,6 @@
       {{object.estado_civil}}
     </p>
   </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Grupo sanguíneo
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.grupo_sanguineo}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Hijo(s)
-    <p class="detalle-item-value font-weight-bolder">
-      {% if object.hijo == True %}
-        Si
-      {% else %}
-        No
-      {% endif %}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Número hijo(s)
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.numero_hijo}}
-    </p>
-  </div>
 </div>
 <!-- Datos Empleados -->
 <div class="border-bottom-red-1">
@@ -128,57 +96,6 @@
         Tipo empleado
     <p class="detalle-item-value font-weight-bolder">
       {{object.tipo_empleado}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-        Grado instrucción
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.grado_instruccion}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Profesión
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.profesion}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Ocupación
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.ocupacion}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Fecha inicio contratación
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.fecha_inicio_contratacion}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Fecha fin contratacion
-    <p class="detalle-item-value font-weight-bolder">
-      {% if object.fecha_fin_contratacion %}
-        {{object.fecha_fin_contratacion}}
-      {% else %}
-        -------
-      {% endif %}
-    </p>
-  </div>
-
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Fecha cese
-    <p class="detalle-item-value font-weight-bolder">
-      {% if object.fecha_cese %}
-       {{object.fecha_cese}}
-      {% else %}
-        -------
-      {% endif %}
     </p>
   </div>
 </div>
@@ -216,22 +133,48 @@
       {{object.usuario.password}}
     </p>
   </div>
+</div>
+<!-- Datos - Extras -->
+<div class="border-bottom-red-1">
+  <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    Domicilio 
+  </h3>
+</div>
+<div class="group-detalle">
   <div class="detalle-item">
     <p class="detalle-item-label font-weight-bolder">
-        Número Tarjeta Mágnetica
+      Distrito 
     </p>
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.usuario.numero_tarjeta_magnetica}}
+    <p class="detalle-item-value font-weight-bolder ">
+        {{object.distrito}}
     </p>
   </div>
   <div class="detalle-item">
     <p class="detalle-item-label font-weight-bolder">
-        Número Acesso Biométrico
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.usuario.numero_acceso_biometrico}}
+      Zona
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {{object.zona}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Via
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {{object.via}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Dirección
+    </p>
+    <p class="detalle-item-value font-weight-bolder ">
+        {{object.direccion}}
     </p>
   </div>
 </div>
+
 <!-- Datos - Extras -->
 <div class="border-bottom-red-1">
   <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
@@ -244,7 +187,7 @@
       Teléfono (Personal)
     </p>
     <p class="detalle-item-value font-weight-bolder ">
-        {% if object.fecha_cese %}
+        {% if object.telefono %}
           {{object.telefono}}
         {% else %}
           -------
@@ -256,7 +199,7 @@
       Celular (Personal)
     </p>
     <p class="detalle-item-value font-weight-bolder ">
-        {% if object.fecha_cese %}
+        {% if object.celular %}
           {{object.celular}}
         {% else %}
           -------

@@ -1,0 +1,15 @@
+{% for object in object_list%}
+<tr class="table-body-row" id="table_body_row">
+  <td class="table-body-row-data"><input type="checkbox" id="ck_{{object.id}}"></td>
+  <td class="table-body-row-data"><a href="{% url "orden_vuelo:detail" object.slug %}" class="link color-celeste">{{object.tripulacion}}</a></td>
+
+  <td class="table-body-row-data">{{ object.aeronave }}</td>
+  <td class="table-body-row-data">{{ object.tipo_vuelo }}</td>
+  <td class="table-body-row-data">{{ object.zona_vuelo }}</td>
+  <td class="table-body-row-data">{{ object.turno }}</td>
+  <td class="table-body-row-data">{{ object.mision }}</td>
+  <td class="table-body-row-data">{{ object.altura }}</td>
+  <td class="table-body-row-data">{{ object.galon }}</td>
+  <td class="table-body-row-data">{{ object.fecha_vuelo }}</td>
+</tr>
+{%endfor%}

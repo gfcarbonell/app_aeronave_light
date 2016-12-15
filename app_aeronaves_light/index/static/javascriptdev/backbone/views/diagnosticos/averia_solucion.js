@@ -17,9 +17,7 @@ class AveriaSolucion extends Backbone.View
 
 	events()
 	{
-		return {
-				"change .averias"					  : "checked_averia",
-			   };
+
 	}
 
 	checked_averia(e)
@@ -95,6 +93,7 @@ class AveriaSolucion extends Backbone.View
 		{
 			var soluciones = [];
 			var soluciones_collection;
+			var x = 0;
 			for (var i = 0; i < averias.length; i++) {
 				self.get_solucion(averias[i])
 				.then(function(data){
@@ -103,10 +102,13 @@ class AveriaSolucion extends Backbone.View
 					{
 							//console.log("creado:" + data);
 							soluciones_collection.add(data);
-							if (i==averias.length)
+							if (x+1==averias.length)
 							{
 								resolve(soluciones_collection);
-							}	
+							}
+							else{
+								x++;
+							}
 					}
 					else{
 						//console.log("Nuevo:" + data);
@@ -117,16 +119,7 @@ class AveriaSolucion extends Backbone.View
 					
 				});
 			};
-
-			
-			/*if (soluciones_view != undefined)
-			{
-				soluciones_view.undelegateEvents();
-			}
-			$("#container_soluciones").html("");
-			var soluciones_view = new SolucionesView({el:$("#container_soluciones"), collection:soluciones});
-			resolve(soluciones_view);
-			*/
+	
 		});
 	}
 

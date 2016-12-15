@@ -43,7 +43,7 @@ class Marca(models.Model):
 	#Opciones
 	class Meta:
 		#Nombre para la tabla del gestor de base de datos
-		db_table = 'MarcaS'
+		db_table = 'Marcas'
 		#Ordenar los registros por un campo especifico
 		ordering = ('nombre',)
 		#Nombre para el Conjunto de Objetos en el Panel de Administración

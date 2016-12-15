@@ -16,14 +16,14 @@
   <figcaption class="detalle-nombre padding-normal-left-right">
     <a href="{% url "aeronave:update" object.slug %}" class="rotulo link padding-normal-up-down display-block text-center font-weight-bolder text-shadow-black">
       <p>
-        {{object.nombre}}
+        {{object.numero_cola_aeronave}}
       </p>
       <p>
         {{object.apellido_paterno}} {{object.apellido_materno}}
       </p>
     </a>
     <p class="text-center border-top-red-1  padding-normal-up-down color-gris-oscuro font-weight-bolder ">
-        {{object.nombre}} - {{object.tipo_aeronave.nombre}}
+        {{object.marca}} - {{object.modelo}}
     </p>
   </figcaption>
 
@@ -89,13 +89,6 @@
       Marca
     <p class="detalle-item-value font-weight-bolder">
       {{object.marca}}
-    </p>
-  </div>
-  <div class="detalle-item">
-    <p class="detalle-item-label font-weight-bolder">
-      Color
-    <p class="detalle-item-value font-weight-bolder">
-      {{object.color}}
     </p>
   </div>
 </div>

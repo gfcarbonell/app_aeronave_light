@@ -22,7 +22,8 @@ var NumeroDocumentoIdentificacion      = require("../views/input_numero_document
 
 var AveriasSoluciones = require("../views/diagnosticos/averias_soluciones");
 var Diagnosticar = require("../views/diagnosticos/diagnosticar");
-
+var BotonDiagnosticar = require("../views/diagnosticos/boton_diagnosticar");
+var BotonSubmit = require("../views/diagnosticos/boton_submit");
 
 
 class Router extends Backbone.Router
@@ -48,7 +49,9 @@ class Router extends Backbone.Router
             "mantenimiento/especialista/nuevo/"                           : "especialista_nuevo",
             "mantenimiento/especialista/:especialista/modificar/"         : "especialista_modificar",
             
-            "mantenimiento/diagnostico/nuevo/"                      : "diagnostico_nuevo",
+            "mantenimiento/diagnostico/nuevo/"                                : "diagnostico_nuevo",
+
+            "mantenimiento/ordenes-de-vuelos/"                                : "ordenes_vuelos",
             };
     }
 
@@ -101,6 +104,14 @@ class Router extends Backbone.Router
     diagnostico_nuevo()
     {
         var diagnosticar = new Diagnosticar({el:$("#container_aeronaves")});
+        var button        = new BotonDiagnosticar({el:$("#container_boton_diagnosticar")});
+        var button_submit = new BotonSubmit({el:$("#container_submit")});
+        button_submit.render();
+        button.render();
+    }
+    ordenes_vuelos()
+    {
+        var search_orden_vuelo = new SearchBox({el:$("#container_search_registro") });
     }
  }
 

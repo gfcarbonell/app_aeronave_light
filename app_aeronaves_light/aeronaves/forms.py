@@ -16,9 +16,9 @@ class AeronaveModelForm(forms.ModelForm):
 			'modelo'	  		    : forms.Select(attrs={'class':'select-field-default'}),
 			'marca'	  			    : forms.Select(attrs={'class':'select-field-default'}),
 			'color'	  			    : forms.Select(attrs={'class':'select-field-default'}),
-			'numero_cola'			: forms.TextInput(attrs={'class':'input-field-default'}),
+			'numero_cola_aeronave'	: forms.TextInput(attrs={'class':'input-field-default'}),
 			'descripcion' 		    : forms.Textarea(attrs={'class':'input-field-area-default'}),
 			'fotografia'    		: forms.FileInput(attrs={'class':'input-file'}),
 
-			'activo'						: forms.CheckboxInput(attrs={'class':''}),
+			'activo'				: forms.CheckboxInput(attrs={'class':''}),
 	      }

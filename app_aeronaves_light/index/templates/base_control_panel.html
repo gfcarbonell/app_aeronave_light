@@ -49,10 +49,11 @@
 						</div>
 					</div>
 				</div>
-
+				{% block boton_submit %}
 				<div class="container-submit {% block background_panel_submit %} background-gris {% endblock background_panel_submit %}">
 					<input type="submit" class="submit" value="Guardar.">
 				</div>
+				{% endblock boton_submit %}
 				<!-- Mensaje Errores -->
 				<div class="mensajeError">
 					<p class="textError color-azul font-size-text">

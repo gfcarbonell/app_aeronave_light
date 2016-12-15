@@ -25,6 +25,12 @@ class PilotoUpdateView(TipoPerfilUsuarioMixin, AccessLoginRequiredMixin, UpdateV
     template_name   = 'piloto_update.html'
     queryset        = Piloto.objects.all()
 
+    def get_context_data(self, **kwarg):
+        context  = super(PilotoUpdateView, self).get_context_data(**kwarg)
+        empleado  = self.queryset.get(slug__contains=self.kwargs['slug'])
+        data = {'empleado':empleado}
+        context.update(data)
+        return context
 
 
 class PilotoControlListView(PaginationMixin, TipoPerfilUsuarioMixin, AccessLoginRequiredMixin, ListView):

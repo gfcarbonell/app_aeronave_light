@@ -40,8 +40,8 @@
 	</div>
 </div>
 <div class="componente-panel">
-	<div class="container-submit background-azul">
-		<input type="button" class="submit" value="Diagnosticar" id="boton_diagnosticar">
+	<div class="container-submit background-azul" id="container_boton_diagnosticar">
+		
 	</div>
 </div>
 {% endblock panel_left%}
@@ -52,8 +52,8 @@
 		<div class="card-panel-left container-items padding-normal-left-right">
 			<!-- Label -->
 			<div class="form-head padding-normal-up-down border-bottom-azul-2">
-				<h3 class="rotulo upper-case color-white text-shadow-black">
-					Solucion(es)
+				<h3 class="rotulo upper-case color-white text-shadow-black" id="titulo_soluciones">
+					Solucion(es) 
 				</h3>
 			</div>
 			<ul class="items" id="container_soluciones">
@@ -67,24 +67,30 @@
 					Lista de Especialista(s)
 				</h3>
 			</div>
-			<ul class="items">
-				<li class="padding-normal-down">
-					<h4 class="font-weight color-white text-shadow-black">
-					    <input type="radio" name="especialistas"/>
-					    Carbonell Saravia Robeto Gian Franco 
-					</h4>
-				</li>
+			<ul class="items" id="container_empleados">
+				
 			</ul>
+			<div class="container">
+
+				<label for="">
+					Fecha Diagnostico:
+					<input type="datetime-local" class="input-field-default" id="date_diagnostico"/>
+				</label>
+			</div>
 		</div>
 	</div>
 </div>
 {% endblock panel_right_componentes %}
-
+{% block boton_submit %}
+	<div class="container-submit background-red" id="container_submit">
+		
+	</div>
+{% endblock boton_submit %}
 {% block script_template %}
 
 	<script id ="aeronaves_template" type="text/template">
 		<select name="aeronaves" id="aeronaves" class="select-field-default">
-			<option value=""> ---------- </option>
+			<option value="0" id=0> ---------- </option>
 			{% for aeronave in aeronaves %}
 				<option value="{{aeronave.pk}}" > {{aeronave}} </option>
 			{% endfor %}
@@ -93,22 +99,37 @@
 
 	<script id ="averia_solucion_template" type="text/template">
 		<label for="<%= catalogo_aeronave_parte_averia.averia.id%>" class="label-panel ">
-			<input type="checkbox" class="averias" name="averia" id=<%= catalogo_aeronave_parte_averia.averia.id%> />
+			<input type="checkbox" class="averias" name="averia" id=<%= catalogo_aeronave_parte_averia.averia.id%>  />
 			<%= catalogo_aeronave_parte_averia.averia.nombre %>
 		</label>
 	</script>
 
 	<script id ="solucion_template" type="text/template">
 		<div class="padding-normal-down border-bottom-red-1">
-		  	<h3 class="color-white text-shadow-black" id=<%= averia.id %>>
+		  	<h3 class="color-white text-shadow-black" id= a_<%= averia.id %>>
 		    	<%= averia.nombre %>
 		  	</h3>
 		</div>
-		<p class="padding-normal-up-down" id=<%= solucion.id %>
+		<p class="padding-normal-up-down" id=s_<%= solucion.id %> >
 			<%= solucion.nombre %>
 		</p>					
 	</script>
 
+	<script id ="empleado_template" type="text/template">
+		<li class="padding-normal-down">
+			<h4 class="font-weight color-white text-shadow-black">
+			    <input type="radio" name="especialistas" id=e_<%= id %>  value=<%=id%> />
+			      <%= apellido_paterno %>  <%= apellido_materno %>, <%= nombre %>  | <%= tipo_empleado %>
+			</h4>
+		</li>			
+	</script>
+
+	<script id ="boton_diagnosticar_template" type="text/template">
+		<input type="button" class="submit" value="Diagnosticar" id="boton_diagnosticar">	
+	</script>
+	<script id ="boton_submit_template" type="text/template">
+		<input type="submit" class="submit" value="Guardar." id="boton_submit">	
+	</script>
 {% endblock script_template %}
 
 

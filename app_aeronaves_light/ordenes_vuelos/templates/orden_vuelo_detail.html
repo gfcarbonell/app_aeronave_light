@@ -1,0 +1,109 @@
+{% extends 'base_detail.html '%}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+{% block titulo_perfil %} Orden de Vuelo {% endblock titulo_perfil %}
+
+{% block src_avatar_modulo %} {% static "imagenes/png/Navidad_1.png"%} {% endblock src_avatar_modulo %}"
+{% block alt_avatar_modulo %} Sistema de Mantenimiento Aereo {% endblock alt_avatar_modulo %}"
+{% block url_menu_control %} {% url "catalogo_modulo_menu_sub_menu:empadronamiento_municipal_menu" %} {% endblock url_menu_control %}
+
+
+{% block detalle_left_container %}
+<figure class="container ">
+   <figcaption class="detalle-nombre padding-normal-left-right">
+    <a href="{% url "orden_vuelo:update" object.slug %}" class="rotulo link padding-normal-up-down display-block text-center font-weight-bolder text-shadow-black">
+      <p>
+        {{object.tripulacion}}
+      </p>
+      <p>
+        {{object.apellido_paterno}} {{object.apellido_materno}}
+      </p>
+    </a>
+    <p class="text-center border-top-red-1  padding-normal-up-down color-gris-oscuro font-weight-bolder ">
+        {{object.nombre}} - {{object.tipo_aeronave.nombre}}
+    </p>
+  </figcaption>
+
+  <div class="group-detalle">
+    <div class="detalle-item">
+      <p class="detalle-item-label font-weight-bolder">
+        Tipo de Vuelo 
+      <p class="detalle-item-area font-weight-bolder">
+        {{object.tipo_vuelo}}
+      </p>
+    </div>
+  </div>
+
+  <div class="group-detalle">
+    <div class="detalle-item">
+      <p class="detalle-item-label font-weight-bolder">
+        Zona de Vuelo
+      <p class="detalle-item-area font-weight-bolder">
+        {{object.zona_vuelo}}
+      </p>
+    </div>
+  </div>
+  
+</figure>
+{% endblock detalle_left_container %}
+{% block detalle_right_container %}
+
+<!-- Datos Empleados -->
+<div class="border-bottom-red-1">
+  <h3 class="rotulo upper-case color-white text-shadow-black padding-normal-up-down">
+    Orden Vuelo
+  </h3>
+</div>
+<div class="group-detalle">
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Tripulación
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.tripulacion}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+        Aeronave
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.aeronave}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Turno
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.turno}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Mision
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.mision}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Altura
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.altura}}
+    </p>
+  </div>
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Galon(es)
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.galon}}
+    </p>
+  </div>
+   <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Fecha de Vuelo
+    <p class="detalle-item-value font-weight-bolder">
+      {{object.fecha_vuelo}}
+    </p>
+  </div>
+</div>
+
+{% endblock detalle_right_container %}

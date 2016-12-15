@@ -70,8 +70,10 @@ INSTALLED_APPS = [
     'catalogos_aeronaves_partes_averias.apps.CatalogosAeronavesPartesAveriasConfig',
     'catalogos_aeronaves_partes_averias_soluciones.apps.CatalogosAeronavesPartesAveriasSolucionesConfig',
     'catalogos_aeronaves_partes_averias_soluciones_empleados.apps.CatalogosAeronavesPartesAveriasSolucionesEmpleadosConfig',
-
-
+    'tripulaciones.apps.TripulacionesConfig',
+    'tipos_vuelos.apps.TiposVuelosConfig',
+    'zonas_vuelos.apps.ZonasVuelosConfig',
+    'ordenes_vuelos.apps.OrdenesVuelosConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
