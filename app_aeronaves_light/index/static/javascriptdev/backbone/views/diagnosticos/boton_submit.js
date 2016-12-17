@@ -7,6 +7,7 @@ var Catalogos 				 = require("../../collections/catalogos");
 
 var csrftoken = getCookie('csrftoken');
 
+var router = new Backbone.Router();
 
 function sameOrigin(url) {
     // test that a given url is a same-origin URL
@@ -78,6 +79,7 @@ class BotonSubmit extends Backbone.View
 				{
 					if(fecha_diagnostico!=undefined)
 					{
+						var x = 0;
 						for (var i = id_averias.length - 1; i >= 0; i--) {
 							this.get_catalogo(id_aeronave, id_averias[i])
 							.then(function(response)
@@ -94,11 +96,22 @@ class BotonSubmit extends Backbone.View
 									"fecha_diagnostico":fecha_diagnostico,
 									"seleccionar":seleccionar
 								}
+								console.log("-----------");
+								
+								x++;
+								console.log("x:" + x);
 								console.log(JSON.stringify(objeto));
 								self.ajax_post(JSON.stringify(objeto))
 								.then(function(response){
-
+									
 								});
+							})
+							.then(function(response)
+							{
+								if(id_averias.length == x){
+									console.log("entre");
+									window.location.href = "/mantenimiento/diagnosticos/";
+								}
 							});
 						};
 					}

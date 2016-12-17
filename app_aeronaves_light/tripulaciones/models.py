@@ -11,7 +11,7 @@ from django.template.defaultfilters import slugify
 
 class Tripulacion(models.Model):
 	aeronaves 				   		= models.ManyToManyField(Aeronave, through='ordenes_vuelos.OrdenVuelo')
-	piloto 							= models.ForeignKey(Piloto)
+	piloto 							= models.ManyToManyField(Piloto, through='asignaciones_tripulaciones_pilotos.AsignacionTripulacionPiloto')
 	nombre 	   						= models.CharField(
 											  max_length=100,
 										      validators=[

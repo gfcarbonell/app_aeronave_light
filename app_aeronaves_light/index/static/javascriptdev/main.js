@@ -5,7 +5,6 @@ var BackboneCSRF = require("backbone.csrf");
 
 
 $(() => {
-
     var router = new Router();
     Backbone.history.start({pushState: true});
     BackboneCSRF.initialize();

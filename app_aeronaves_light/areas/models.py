@@ -47,7 +47,7 @@ class Area(models.Model):
 		return self.nombre
 
 	def get_nombre_full(self):
-		return '%s | %s' %(self.get_nombre(), self.sede.get_nombre_full())
+		return '%s | %s' %(self.sede.get_nombre_full(), self.get_nombre())
 
 	def save(self, *args, **kwargs):
 		if not self.pk:

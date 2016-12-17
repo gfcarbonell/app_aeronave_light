@@ -10,6 +10,7 @@ from django.template.defaultfilters import slugify
 from .models import OrdenVuelo
 from .forms import OrdenVueloModelForm
 from infos_sistemas.mixins import TipoPerfilUsuarioMixin, AccessLoginRequiredMixin
+from asignaciones_tripulaciones_pilotos.models import AsignacionTripulacionPiloto 
 
 
 class OrdenVueloCreateView(TipoPerfilUsuarioMixin, AccessLoginRequiredMixin, CreateView):
@@ -68,3 +69,14 @@ class OrdenVueloDetailView(TipoPerfilUsuarioMixin, AccessLoginRequiredMixin,  De
     template_name   = 'orden_vuelo_detail.html'
     model           = OrdenVuelo
     queryset        = OrdenVuelo.objects.all()
+
+    def get_context_data(self, **kwarg):
+        context      = super(OrdenVueloDetailView, self).get_context_data(**kwarg)
+        orden_vuelo  = self.queryset.filter(slug__contains=self.kwargs['slug'])
+        tripulacion  = orden_vuelo
+        #tripulaciones = AsignacionTripulacionPiloto.objects.filter(tripulacion=orden_vuelo.tripulacion)
+        data = {'tripulaciones':tripulacion}
+        context.update(data)
+        return context
+        
+

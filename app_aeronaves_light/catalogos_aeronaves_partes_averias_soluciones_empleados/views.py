@@ -207,3 +207,42 @@ def view_ajax(request):
 
 
 
+
+class DiagnosticoListView(PaginationMixin, TipoPerfilUsuarioMixin, AccessLoginRequiredMixin,  ListView):
+    model         = CatalogoAeronaveParteAveriaSolucionEmpleado
+    template_name = 'diagnosticos.html'
+    paginate_by   = 10
+
+    def get_context_data(self, **kwarg):
+        context     = super(DiagnosticoListView, self).get_context_data(**kwarg)
+        boton_menu     = False
+        total_registro = self.model.objects.count()
+
+        data = {
+            'boton_menu'    : boton_menu,
+            'total_registro': total_registro,
+        }
+
+        context.update(data)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        if request.GET.get('search_registro', None):
+            self.object_list = self.get_queryset()
+            context = self.get_context_data()
+            return self.render_to_response(context)
+        else:
+            return super(DiagnosticoListView, self).get(self, request, *args, **kwargs)
+
+    def get_queryset(self):
+        if self.request.GET.get('search_registro', None):
+            value = self.request.GET.get('search_registro', None)
+            queryset = self.model.objects.filter(
+            Q(slug__icontains=slugify(value))
+
+            )
+        else:
+            queryset = super(DiagnosticoListView, self).get_queryset()
+        return queryset
+
+

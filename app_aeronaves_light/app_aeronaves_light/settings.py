@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'tipos_vuelos.apps.TiposVuelosConfig',
     'zonas_vuelos.apps.ZonasVuelosConfig',
     'ordenes_vuelos.apps.OrdenesVuelosConfig',
+    'asignaciones_tripulaciones_pilotos.apps.AsignacionesTripulacionesPilotosConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

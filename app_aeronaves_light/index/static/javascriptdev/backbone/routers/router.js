@@ -31,13 +31,14 @@ class Router extends Backbone.Router
     initialize () {
         this._bindRoutes();
         var boton_usuario_dato = new BotonUsuarioDato({el:$("#boton_usuario_dato_container")});
-        var boton_open_menu = new BotonOpenMenu({el: $("#boton_open_menu_container")})
-        var boton_close_menu = new BotonCloseMenu({el: $("#boton_close_menu_container")})
+        var boton_open_menu = new BotonOpenMenu({el: $("#boton_open_menu_container")});
+        var boton_close_menu = new BotonCloseMenu({el: $("#boton_close_menu_container")});
     }
 
     routes ()
     {
         return {
+           
             "mantenimiento/aeronaves/"                              : "aeronaves",
             "mantenimiento/aeronave/nuevo/"                         : "aeronave_nuevo",
             "mantenimiento/aeronave/:aeronave/modificar/"           : "aeronave_modificar",
@@ -49,12 +50,13 @@ class Router extends Backbone.Router
             "mantenimiento/especialista/nuevo/"                           : "especialista_nuevo",
             "mantenimiento/especialista/:especialista/modificar/"         : "especialista_modificar",
             
-            "mantenimiento/diagnostico/nuevo/"                                : "diagnostico_nuevo",
+            "mantenimiento/diagnostico/nuevo/"                            : "diagnostico_nuevo",
+            "mantenimiento/diagnosticos/"                            : "diagnosticos",
+            "mantenimiento/ordenes-de-vuelos/"                            : "ordenes_vuelos"
 
-            "mantenimiento/ordenes-de-vuelos/"                                : "ordenes_vuelos",
+            
             };
     }
-
     aeronaves()
     {
         var search_empleado = new SearchBox({el:$("#container_search_registro") });
@@ -109,8 +111,17 @@ class Router extends Backbone.Router
         button_submit.render();
         button.render();
     }
-    ordenes_vuelos()
+
+
+    diagnosticos()
     {
+        console.log("ok");
+        var search_diagnostico = new SearchBox({el:$("#container_search_registro") });
+    }
+
+        ordenes_vuelos()
+    {
+        console.log("ok");
         var search_orden_vuelo = new SearchBox({el:$("#container_search_registro") });
     }
  }

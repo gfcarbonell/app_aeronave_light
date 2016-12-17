@@ -104,6 +104,19 @@
       {{object.fecha_vuelo}}
     </p>
   </div>
+
+ 
+  <div class="detalle-item">
+    <p class="detalle-item-label font-weight-bolder">
+      Pilotos
+     {% for tripulacion in tripulaciones %}
+    <p class="detalle-item-value font-weight-bolder">
+      {{tripulacion}}
+      {{tripulacion.tripulacion}}
+    </p>
+    {% endfor%}
+  </div>
+  
 </div>
 
 {% endblock detalle_right_container %}
