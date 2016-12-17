@@ -18,7 +18,12 @@ var PanelMenuPiloto  = require("../views/pilotos/panel_menu_piloto");
 var SearchBox                          = require("../views/search_box");
 var Fotografia                         = require("../views/file_imagen_fotografia");
 var DocumentoIdentificacion            = require("../views/select_documento_identificacion");
-var NumeroDocumentoIdentificacion            = require("../views/input_numero_documento_identificacion");
+var NumeroDocumentoIdentificacion      = require("../views/input_numero_documento_identificacion");
+
+var AveriasSoluciones = require("../views/diagnosticos/averias_soluciones");
+var Diagnosticar = require("../views/diagnosticos/diagnosticar");
+var BotonDiagnosticar = require("../views/diagnosticos/boton_diagnosticar");
+var BotonSubmit = require("../views/diagnosticos/boton_submit");
 
 
 class Router extends Backbone.Router
@@ -26,13 +31,14 @@ class Router extends Backbone.Router
     initialize () {
         this._bindRoutes();
         var boton_usuario_dato = new BotonUsuarioDato({el:$("#boton_usuario_dato_container")});
-        var boton_open_menu = new BotonOpenMenu({el: $("#boton_open_menu_container")})
-        var boton_close_menu = new BotonCloseMenu({el: $("#boton_close_menu_container")})
+        var boton_open_menu = new BotonOpenMenu({el: $("#boton_open_menu_container")});
+        var boton_close_menu = new BotonCloseMenu({el: $("#boton_close_menu_container")});
     }
 
     routes ()
     {
         return {
+           
             "mantenimiento/aeronaves/"                              : "aeronaves",
             "mantenimiento/aeronave/nuevo/"                         : "aeronave_nuevo",
             "mantenimiento/aeronave/:aeronave/modificar/"           : "aeronave_modificar",
@@ -43,9 +49,14 @@ class Router extends Backbone.Router
             "mantenimiento/especialistas/"                                : "especialistas",
             "mantenimiento/especialista/nuevo/"                           : "especialista_nuevo",
             "mantenimiento/especialista/:especialista/modificar/"         : "especialista_modificar",
+            
+            "mantenimiento/diagnostico/nuevo/"                            : "diagnostico_nuevo",
+            "mantenimiento/diagnosticos/"                            : "diagnosticos",
+            "mantenimiento/ordenes-de-vuelos/"                            : "ordenes_vuelos"
+
+            
             };
     }
-
     aeronaves()
     {
         var search_empleado = new SearchBox({el:$("#container_search_registro") });
@@ -92,6 +103,27 @@ class Router extends Backbone.Router
         var fotografia = new FotografiaEmpleado({el:$("#container_fotografia")});
     }
 
+    diagnostico_nuevo()
+    {
+        var diagnosticar = new Diagnosticar({el:$("#container_aeronaves")});
+        var button        = new BotonDiagnosticar({el:$("#container_boton_diagnosticar")});
+        var button_submit = new BotonSubmit({el:$("#container_submit")});
+        button_submit.render();
+        button.render();
+    }
+
+
+    diagnosticos()
+    {
+        console.log("ok");
+        var search_diagnostico = new SearchBox({el:$("#container_search_registro") });
+    }
+
+        ordenes_vuelos()
+    {
+        console.log("ok");
+        var search_orden_vuelo = new SearchBox({el:$("#container_search_registro") });
+    }
  }
 
 module.exports = Router;

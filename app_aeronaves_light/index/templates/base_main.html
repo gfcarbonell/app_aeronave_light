@@ -20,7 +20,7 @@
 		<link rel= "shortcut icon" href="{% static "imagenes/png/FAP_1.png" %}" type="image/x-icon"/>
 		<!-- Estilos y Diseños -->
 		<link rel="stylesheet" href="{% static "stylesheet/styles.css" %}"/>
-
+	
 
 	<body>
 		<header class=" {% block position_absolute_header %} {% endblock position_absolute_header %} ">
@@ -53,11 +53,8 @@
 		{% block script_config_template %}
 		{% endblock script_config_template %}
 
-		{% block plugin %}
-		{% endblock plugin %}
-
-	</header>
 		<script type="text/javascript" src="{% static "javascript/main.js"%} "></script>
-
+		{% block script %}
+		{% endblock script %}
 	</body>
 </html>

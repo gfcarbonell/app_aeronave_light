@@ -37,7 +37,7 @@ class Area(models.Model):
 	#Métodos
 	#Python 3.X
 	def __str__(self):
-		return self.get_nombre()
+		return self.get_nombre_full()
 
 	#Python 2.X
 	#def __unicode__(self):
@@ -45,6 +45,9 @@ class Area(models.Model):
 
 	def get_nombre(self):
 		return self.nombre
+
+	def get_nombre_full(self):
+		return '%s | %s' %(self.sede.get_nombre_full(), self.get_nombre())
 
 	def save(self, *args, **kwargs):
 		if not self.pk:

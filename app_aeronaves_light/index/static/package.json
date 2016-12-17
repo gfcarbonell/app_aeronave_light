@@ -42,6 +42,7 @@
     "backbone-validation": "^0.11.5",
     "backbone.paginator": "^2.0.5",
     "backgrid": "^0.3.7",
+    "csrf": "^3.0.4",
     "install": "^0.8.1",
     "jquery": "^3.1.1",
     "npm": "^3.10.6",

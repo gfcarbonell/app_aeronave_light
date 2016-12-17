@@ -8,3 +8,6 @@ class CatalogoAeronaveParteAveriaSolucionAdmin(admin.ModelAdmin):
 	list_display   = ('get_nombre',)
 	list_instances = True
 	search_fields  = ('nombre',)
+
+	def save_model(self, request, obj, form, change):
+		obj.save()

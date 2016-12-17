@@ -16,15 +16,17 @@
 						<!-- Titulo -->
 						<div class="border-bottom-red-2">
 							<h3 class="rotulo upper-case text-center padding-normal-up-down text-shadow-black color-white">
-								Datos Generales
+								{% block h3 %} 
+									Datos Generales
+								{% endblock h3 %} 	 
 							</h3>
 						</div>
 						<!-- Menu -->
 						<ul class="panel-menu background-red" id="panel_menu">
 							{% block panel_menu_item %}
 							<li class="background-white">
-								<a href="" class="link color-black">
-									Menu
+								<a class="link color-black">
+									
 								</a>
 							</li>
 							{% endblock panel_menu_item %}
@@ -49,10 +51,11 @@
 						</div>
 					</div>
 				</div>
-
+				{% block boton_submit %}
 				<div class="container-submit {% block background_panel_submit %} background-gris {% endblock background_panel_submit %}">
 					<input type="submit" class="submit" value="Guardar.">
 				</div>
+				{% endblock boton_submit %}
 				<!-- Mensaje Errores -->
 				<div class="mensajeError">
 					<p class="textError color-azul font-size-text">

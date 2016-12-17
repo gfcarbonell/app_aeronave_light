@@ -3,95 +3,133 @@
 {% load static from staticfiles %}
 
 {% block panel_left%}
-<div class="container">
-	<!-- Aeronaves -->
-	<div class="componente-panel">
-		<!-- Field -->
-		<div class="field-panel">
+<div class="componente-panel">
+	<!-- Field -->
+	<div class="field-panel">
+		<!-- Label -->
+		<div class="container-label-panel">
+			<h3 for="" class="label-panel color-white text-shadow-black ">
+				Aeronave(s)
+			</h3>
+		</div>
+		<!-- Input -->
+		<div class="input-panel" id="container_aeronaves">
+			
+		</div>
+	</div>
+</div>
+<div class="componente-panel">
+	<!-- Field -->
+	<div class="field-panel">
+		<div class="container-checkbox" id="container_averias">
 			<!-- Label -->
-			<div class="container-label-panel">
-				<label for="" class="label-panel ">
-					Aeronave(s)
-				</label>
+			<div class="form-head padding-normal-up-down border-bottom-azul-2">
+				<h3 class="rotulo upper-case color-white text-shadow-black">
+					Lista de Averias
+				</h3>
 			</div>
 			<!-- Input -->
-			<div class="input-panel ">
-				<select name="" id="aeronave_id" class="select-field-default">
-					<option value=""> ---------- </option>
-					{% for aeronave in aeronaves %}
-						<option value="{{aeronave.pk}}" > {{aeronave}} </option>
-					{% endfor %}
-				</select>
-			</div>
+			<ul class="input-panel" id="averias">
+				<div class="card-panel" id="container_averias_soluciones">
+					<ul id="averias_soluciones" class="container list-averias">
+						
+					</ul>
+				</div>
+			</ul>
 		</div>
 	</div>
-
-	<div class="componente-panel">
-		<!-- Field -->
-		<div class="field-panel">
-			<div class="container-checkbox">
-				<!-- Input -->
-				<ul class="input-panel ">
-					{% for catalogo_aeronave_parte in catalogos_aeronaves_partes %}
-					<li for="">
-						<label for="">
-							<input type="checkbox" id ="{{averia.id}}"/>
-							{{catalogo_aeronave_parte.averia}}
-						</label>
-					</li> 
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
+</div>
+<div class="componente-panel">
+	<div class="container-submit background-azul" id="container_boton_diagnosticar">
+		
 	</div>
-	
 </div>
 {% endblock panel_left%}
 
 {% block panel_right_componentes %}
-<article class="card-panel">
-	<div class="card-panel-left">
-		<!-- Titulo -->
-		<div>
-			<h4>
-				Soluciones por Averia
-			</h4>
+<div class="panel">
+	<div class="card-panel">
+		<div class="card-panel-left container-items padding-normal-left-right">
+			<!-- Label -->
+			<div class="form-head padding-normal-up-down border-bottom-azul-2">
+				<h3 class="rotulo upper-case color-white text-shadow-black" id="titulo_soluciones">
+					Solucion(es) 
+				</h3>
+			</div>
+			<ul class="items" id="container_soluciones">
+				
+			</ul>
 		</div>
-		<!-- Lista de Soluciones -->
-		<ul class="items">
-			{% for catalogo_aeronave_parte_solucion in catalogos_aeronaves_partes_soluciones %}
-				<li>
-					<!-- Averia -->
-					<div class="">
-						<label for="" class="">
-							{{catalogo_aeronave_parte_solucion.catalogo_aeronave_parte_averia.averia}}
-						</label>
-					</div>
-					<!-- Solución -->
-					<div>
-						<p>
-							{{catalogo_aeronave_parte_solucion.solucion}}
-						</p>
-					</div>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="card-panel-right">
-		<!-- Lista de Soluciones -->
-		<ul class="items">
-			{% for empleado in empleados %}
-				<li>
-					<!-- Solución -->
-					<div>
-						<p>
-							{{empleado}}
-						</p>
-					</div>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-</article>
+		<div class="card-panel-right container-items padding-normal-left-right">
+			<!-- Label -->
+			<div class="form-head padding-normal-up-down border-bottom-azul-2">
+				<h3 class="rotulo upper-case color-white text-shadow-black">
+					Lista de Especialista(s)
+				</h3>
+			</div>
+			<ul class="items" id="container_empleados">
+				
+			</ul>
+			<div class="container">
 
+				<label for="">
+					Fecha Diagnostico:
+					<input type="datetime-local" class="input-field-default" id="date_diagnostico"/>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock panel_right_componentes %}
+{% block boton_submit %}
+	<div class="container-submit background-red" id="container_submit">
+		
+	</div>
+{% endblock boton_submit %}
+{% block script_template %}
+
+	<script id ="aeronaves_template" type="text/template">
+		<select name="aeronaves" id="aeronaves" class="select-field-default">
+			<option value="0" id=0> ---------- </option>
+			{% for aeronave in aeronaves %}
+				<option value="{{aeronave.pk}}" > {{aeronave}} </option>
+			{% endfor %}
+		</select>
+	</script>
+
+	<script id ="averia_solucion_template" type="text/template">
+		<label for="<%= catalogo_aeronave_parte_averia.averia.id%>" class="label-panel ">
+			<input type="checkbox" class="averias" name="averia" id=<%= catalogo_aeronave_parte_averia.averia.id%>  />
+			<%= catalogo_aeronave_parte_averia.averia.nombre %>
+		</label>
+	</script>
+
+	<script id ="solucion_template" type="text/template">
+		<div class="padding-normal-down border-bottom-red-1">
+		  	<h3 class="color-white text-shadow-black" id= a_<%= averia.id %>>
+		    	<%= averia.nombre %>
+		  	</h3>
+		</div>
+		<p class="padding-normal-up-down" id=s_<%= solucion.id %> >
+			<%= solucion.nombre %>
+		</p>					
+	</script>
+
+	<script id ="empleado_template" type="text/template">
+		<li class="padding-normal-down">
+			<h4 class="font-weight color-white text-shadow-black">
+			    <input type="radio" name="especialistas" id=e_<%= id %>  value=<%=id%> />
+			      <%= apellido_paterno %>  <%= apellido_materno %>, <%= nombre %>  | <%= tipo_empleado %>
+			</h4>
+		</li>			
+	</script>
+
+	<script id ="boton_diagnosticar_template" type="text/template">
+		<input type="button" class="submit" value="Diagnosticar" id="boton_diagnosticar">	
+	</script>
+	<script id ="boton_submit_template" type="text/template">
+		<input type="submit" class="submit" value="Guardar." id="boton_submit">	
+	</script>
+{% endblock script_template %}
+
+

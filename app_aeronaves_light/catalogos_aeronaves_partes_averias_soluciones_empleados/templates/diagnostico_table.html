@@ -1,0 +1,14 @@
+{% for object in object_list%}
+<tr class="table-body-row" id="table_body_row">
+	  <td class="table-body-row-data"><input type="checkbox" id="ck_{{object.id}}"></td>
+	  <td class="table-body-row-data"><a href="" class="link color-celeste">{{object.empleado}}</a></td>
+
+	  <td class="table-body-row-data">{{ object.catalogos_aeronaves_partes_averias_soluciones }}</td>
+	  <td class="table-body-row-data">{{ object.fecha_diagnostico }}</td>
+	  {% if object.seleccionar %}
+	    <td class="table-body-row-data color-verde-pastel text-center font-weight-bolder icon-circle-check "></td>
+	  {% else %}
+	    <td class="table-body-row-data color-red text-center font-weight-bolder icon-circle-cross "></td>
+	  {% endif%}
+</tr>
+{%endfor%}

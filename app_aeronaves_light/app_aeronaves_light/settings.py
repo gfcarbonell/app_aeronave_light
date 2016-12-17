@@ -70,8 +70,11 @@ INSTALLED_APPS = [
     'catalogos_aeronaves_partes_averias.apps.CatalogosAeronavesPartesAveriasConfig',
     'catalogos_aeronaves_partes_averias_soluciones.apps.CatalogosAeronavesPartesAveriasSolucionesConfig',
     'catalogos_aeronaves_partes_averias_soluciones_empleados.apps.CatalogosAeronavesPartesAveriasSolucionesEmpleadosConfig',
-
-
+    'tripulaciones.apps.TripulacionesConfig',
+    'tipos_vuelos.apps.TiposVuelosConfig',
+    'zonas_vuelos.apps.ZonasVuelosConfig',
+    'ordenes_vuelos.apps.OrdenesVuelosConfig',
+    'asignaciones_tripulaciones_pilotos.apps.AsignacionesTripulacionesPilotosConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -185,3 +188,19 @@ MEDIA_URL  = '/media/'
 
 #Configuración de Usuario
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+
+#Configuracion de Correo Electronico
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'r.gian.f.carbonell.s@gmail.com'
+EMAIL_HOST_PASSWORD = 'S1st3mas'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+
+SENDSMS_BACKEND = 'sendsms.backends.console.SmsBackend'

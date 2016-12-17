@@ -8,3 +8,5 @@ class CatalogoAeronaveParteAveriaSolucionEmpleadoAdmin(admin.ModelAdmin):
 	list_display   = ('get_nombre',)
 	list_instances = True
 	search_fields  = ('nombre',)
+	class Meta:
+		model = CatalogoAeronaveParteAveriaSolucionEmpleado

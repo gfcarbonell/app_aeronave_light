@@ -31,7 +31,7 @@ class CatalogoModuloMenuSubMenu(models.Model):
 						   							help_text='Subir imagen. (Opcional)'
 						 							)
 	url 							= models.URLField(unique=True, db_index=True)
-	descripcion		    			= models.TextField(verbose_name='Observación', blank=True, null=True, help_text='(Opcional)')
+	descripcion		    			= models.TextField(verbose_name='Descripción', blank=True, null=True, help_text='(Opcional)')
 	activo 							= models.BooleanField(default=True, choices=BOOL_ACTIVO)
 	slug							= models.SlugField(editable=False, max_length=255 ,unique=True, db_index=True, )
 
