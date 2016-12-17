@@ -1,7 +1,7 @@
 {% for object in object_list%}
 <tr class="table-body-row" id="table_body_row">
   <td class="table-body-row-data"><input type="checkbox" id="ck_{{object.id}}"></td>
-  <td class="table-body-row-data"><a href="{% url "aeronave:detail" object.slug %}" class="link color-celeste">{{object.nombre}}</a></td>
+  <td class="table-body-row-data"><a href="{% url "aeronave:detail" object.slug %}" class="link color-celeste">{{object.numero_cola_aeronave}}</a></td>
 
   <td class="table-body-row-data">{{ object.tipo_aeronave }}</td>
   <td class="table-body-row-data">{{ object.modelo }}</td>

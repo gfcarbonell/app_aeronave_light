@@ -106,16 +106,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'app_aeronaves_light.wsgi.application'
 
 
-# Database
+# Database SQLSERVER
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'sql_server.pyodbc',
+#        'NAME': 'App_Aeronaves',
+#        'USER': 'sa',
+#        'PASSWORD': 'S1st3mas',
+#        'HOST': 'localhost',
+#        'PORT': '1433',
+#    }
+#}
+#Database POSTGRESQL
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'App_Aeronaves',
-        'USER': 'sa',
+        'USER': 'postgres',
         'PASSWORD': 'S1st3mas',
-        'HOST': 'localhost',
-        'PORT': '1433',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

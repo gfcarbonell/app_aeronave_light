@@ -53,7 +53,7 @@ class Aeronave(models.Model):
     #	return self.nombre
 
     def get_nombre(self):
-    	return ' %s | %s | %s ' %(self.tipo_aeronave, self.marca, self.modelo)
+    	return ' %s | %s | %s | %s ' %(self.tipo_aeronave, self.marca, self.modelo, self.numero_cola_aeronave)
 
     def save(self, *args, **kwargs):
     	if not self.pk:
