@@ -1,0 +1,1 @@
+web:gunicorn app_aeronaves_light.wsgi
